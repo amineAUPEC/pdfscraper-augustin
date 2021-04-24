@@ -52,16 +52,21 @@ grep_star=$(cat "res.txt" | grep "*" )
 # cat res.txt | grep "*" |
 
 
-
+#  synthèse 1 calc
 diff_start_line_to_synth1=$(( $(( $grep_synth1_line ))- $(( $grep_start_line )) ))
 echo $diff_start_line_to_synth1
+
+
+#  synthèse 2 calc
+diff_start_line_to_synth1=$(( $(( $grep_synth2_line ))- $(( $grep_start_line )) ))
+echo $diff_start_line_to_synth2
 
 # cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 ))
 
 
 # to do variabilize ; file separate
 # to do concatenate all files by synthesis
-# sed over synth files
+# sed over synth files -> done
 
 
 
@@ -136,142 +141,65 @@ cat $directory_output/sed_genfil_synth1.txt
 
 
 # synthèse  2
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "*" 
+
+
+echo "modifiez synth2 : "
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep modifiez 
+echo "creez synth2 : "
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "creez" 
+echo "ajoutez synth2 : "
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "ajoutez" 
+echo "ajouter synth2 : "
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "ajouter" 
+
+
+# synthèse  2 original files with cat -n  genfile
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "*" > $directory_output/grep_star_synth2.txt
+
+
+echo "modifiez synth2 : genfile2 : "
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep modifiez > $directory_output/grep_modifiez_synth2.txt
+echo "creez synth2 : genfile2 : "
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "creez" > $directory_output/grep_creez_synth2.txt
+echo "ajoutez synth2 : genfile2 : "
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "ajoutez" > $directory_output/grep_ajoutez_synth2.txt
+echo "ajouter synth2 : genfile2 : "
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "ajouter" > $directory_output/grep_ajouter_synth2.txt
 
 
 
-# cat res.txt | grep "*"
+
+# synthèse  2 for debug genfile
+echo "synth2 debug genfile"
+cat $directory_output/grep_*_synth2.txt | cut -f 5- -d ' '
 
 
 
+# sorting synth 2: 
 
+echo "sorting synth2 "
+cat $directory_output/grep_*_synth2.txt | sort 
 
+# sorting synth 2 for sed : 
 
+echo "sorting synth2 for sed "
+cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' '
+# sorting synth 2 for sed gen file : 
 
-# for linesstar in cat res.txt | grep "*"
-# do
-#     echo $linesstar
-# done
+echo "sorting synth2 for sed gensedfile "
+cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth2_backup.txt
+cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth2.txt
 
+# synthèse  2 files for sed  of gensedfile
+echo "replacing by sed synth2 for gensedfile "
 
-# $grep_modifiez
-# cat res.txt | grep modifiez
-# $($grep_modifiez)
-# echo $?
-# if [ $? -eq 0 ]
-# then 
-#     echo "ligne trouvée"
-# else
-#     echo "pas de ligne trouvée" 
-#     echo "pas de ligne trouvée" > $output_debug
-# fi
+sed 's/modifiez/on a modifié/g' -i $directory_output/sed_genfil_synth2.txt
+sed 's/creez/, on a créé/g' -i $directory_output/sed_genfil_synth2.txt
+sed 's/ajoutez/, on a ajouté/g' -i $directory_output/sed_genfil_synth2.txt
+sed 's/ajouter/, on a ajouté/g' -i $directory_output/sed_genfil_synth2.txt
+sed 's/*/ /g' -i $directory_output/sed_genfil_synth2.txt
 
-# for lines_modifiez in $grep_modifiez
-# do
-
-#     echo $lines_modifiez
-
-#     # if [ $lines_modifiez == "" ]
-#     # then 
-#     #     echo "pas de ligne" > $output_debug
-#     # else
-#     #     echo "ligne trouvée"
-
-#     # fi
-
-
-
-# done
-
-# for lines in $grep_creez
-# do
-
-    
-
-
-
-# done
-
-
-# for lines_creez in $grep_creez
-# do
-
-#     echo $lines_creez
-
-#     # if [ $lines_creez == "" ]
-#     # then 
-#     #     echo "pas de ligne" > $output_debug
-#     # else
-#     #     echo "ligne trouvée"
-
-#     # fi
-
-
-
-# done
-
-# for lines_star in $grep_star
-# do
-
-#     echo "$lines_star"
-
-#     # if [ $lines_star == "" ]
-#     # then 
-#     #     echo "pas de ligne" > $output_debug
-#     #     echo "pas de ligne" 
-#     # else
-#     #     echo "ligne trouvée"
-
-#     # fi
-
-
-
-# done
-
-
-# for lines_ajoutez in $grep_ajoutez
-# do
-
-#     echo $lines_ajoutez
-
-#     # if [ $lines_ajoutez == "" ]
-#     # then 
-#     #     echo "pas de ligne" > $output_debug
-#     # else
-#     #     echo "ligne trouvée"
-
-#     # fi
-
-
-
-# done
-
-
-# for lines_ajouter in $grep_ajouter
-# do
-
-#     echo $lines_ajouter
-
-#     # if [ $lines_ajouter == "" ]
-#     # then 
-#     #     echo "pas de ligne" > $output_debug
-#     # else
-#     #     echo "ligne trouvée"
-
-#     # fi
-
-
-
-# done
-
-
-# for lines in $input_file_txt
-# do
-#     if [ ]
-    
-
-
-
-# done
-
-
-# echo 
+# synthèse  2 files cat for sed  of gensedfile
+echo "cat replaced by sed synth2 for gensedfile "
+cat $directory_output/sed_genfil_synth2.txt
