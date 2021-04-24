@@ -36,6 +36,8 @@ grep_end_line=$(cat -n res.txt | tail -n 1 | tr -s ' ' | cut -f1 | cut -f 2 -d '
 grep_synth1_line=$(cat -n res.txt | grep "Synthèse 1 :" | tr -s ' ' | cut -f1 | cut -f 2 -d ' ')
 grep_synth2_line=$(cat -n res.txt | grep "Synthèse 2 :" | tr -s ' ' | cut -f1 | cut -f 2 -d ' ')
 
+echo $grep_synth1_line
+echo $grep_synth2_line
 
 
 grep_modifiez=$(cat res.txt | grep modifiez)
@@ -44,7 +46,17 @@ grep_ajoutez=$(cat res.txt | grep "ajoutez")
 grep_ajouter=$(cat res.txt | grep "ajouter")
 grep_star=$(cat "res.txt" )
 # cat res.txt | grep "*"
+
+
+
+
 # cat res.txt | grep "*"
+i=50
+if [ $(( $i )) -gt 48 ]  && [ $(( $i )) -lt 322 ]
+then
+    echo "success"
+
+fi
 
 
 
