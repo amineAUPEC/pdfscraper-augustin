@@ -3,30 +3,49 @@ réaliser -> réalisé
 aurez -> on a
 sont bien configurés-> on a bien configuré
 vous pouvez affichez -> on affiché
-Storage1 et débranchez2 son second disque. Importez  une VM Debian
-comprendre pourquoi, inspectez ses logs  et affichez les propriétés des volumes
+débranchez2-> on a débranché 
+Importez ->   on a importé
+inspectez ->  on a inspectez
+affichez -> on a affiché
 
-ce disque  au volume RAID 5.
-l'état des volumes RAID  et visualisez en continu  sa reconstruction. Cette
-à présent que vous souhaitiez , on a ajouté un espace de stockage
-par exemple afficher la table des partitions de tous les disques .
-la création de ce volume  (en RAID 5), puis visualisez en continu  sa
-la configuration RAID persistante .
-   •   Le formater .
-   •   Le monter  dans l'arborescence globale.
-lorsque vous démontez  le volume.
+visualisez -> on a visualisé
+afficher -> on a affiché
+
+la création -> on a créé
+   •   Le formater -> on a formaté
+   •   Le monter  -> on a monté
+démontez -> on a démonté
  
 synth2: 
 
-ensuite un VG  nommé vgstockage. Pour l’instant votre VG est composé
-unique PV (vous , on a ajoutéez d'autres PV un peu plus tard) :
-pouvez enfin créer un premier LV  nommé lvstockage et utilisant 75% de
-   •   Le formater  en ext4
-   •   Le monter dans l'arborescence globale. Configurez un montage persistant .
-cela, nous vous proposons d', on a ajouté un nouveau (et quatrième !) volume RAID
-volume  (en RAID 5).
-ce volume en tant que PV , puis , on a ajouté  ce dernier dans le VG
-augmentez la capacité du LV  : , on a ajouté-lui 4 Go supplémentaires.
-ne le sait pas (encore). Comparez la taille du LV  et celle de la partition 
-utiliser la totalité de l’espace du LV, vous devez étendre son système de fichiers .
-les propriétés du VG  pour vérifier qu'il lui reste encore de l'espace non alloué.
+ensuite un VG  nommé vgstockage -> ensuite on a nommé un VG en tant que vgstockage
+nommé -> on a nommé 
+ 
+
+Pour l’instant votre VG est composé -> Pour l’instant notre VG est composé de
+votre -> notre
+
+
+créer -> créé
+Configurez -> on a configuré
+augmentez -> on a augmenté
+ne le sait pas -> on ne le savait pas
+
+
+Comparez -> on a comparé
+
+utiliser -> on a utilisé
+
+vous devez étendre -> on a étendu
+étendre -> on a étendu
+
+pour vérifier -> on a vérifié
+vérifier -> on a vérifié
+allouer -> on a alloué
+
+
+
+------ ++ for more pattern to grep /sed in the future
+sait pas -> on sait 
+vous devez étendre -> on étend
+étendre -> on étend
