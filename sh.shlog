@@ -31,3 +31,38 @@ $ cat -n res.txt | grep "B. Augustin, S. Souihi – Université Paris-Est Créte
    419  B. Augustin, S. Souihi – Université Paris-Est Créteil                            12/14
    455  B. Augustin, S. Souihi – Université Paris-Est Créteil                              13/14
    467  B. Augustin, S. Souihi – Université Paris-Est Créteil                          14/14
+
+
+
+
+
+
+   Administrateur@RT107-32 MINGW64 /e/mylaptop/CDesktop/offline/prepmai/bot_synthesis_augustin/pdfscraper-augustin (master)
+$ head -n 54 res.txt  | tail -n -6
+
+Ce premier TP est consacré à la création d'un serveur de stockage. Vous allez utiliser
+plusieurs techniques de gestion de volumes de stockage locaux (c’est-à-dire, au sein
+d'un même serveur physique) :
+    •   RAID : stockage redondant sur plusieurs disques d'un même hôte
+    •   LVM : agrégation et gestion flexible des volumes de stockage
+
+Administrateur@RT107-32 MINGW64 /e/mylaptop/CDesktop/offline/prepmai/bot_synthesis_augustin/pdfscraper-augustin (master)
+$ head -n 54 res.txt  | tail -n -7
+1. Introduction
+
+Ce premier TP est consacré à la création d'un serveur de stockage. Vous allez utiliser
+plusieurs techniques de gestion de volumes de stockage locaux (c’est-à-dire, au sein
+d'un même serveur physique) :
+gustin/pdfscraper-augustin (master)
+$ cat -n res.txt | head -n 54  | tail -n -7
+    48  1. Introduction
+    49                                                                               gustin/pdfscraper-augustin (master)
+    50  Ce premier TP est consacré à la création d'un serveur de stockage. Vous allez utiliser
+    51  plusieurs techniques de gestion de volumes de stockage locaux (c’est-à-dire, 
+au sein                                                                               utiliser
+    52  d'un même serveur physique) :                                                au sein
+    53      •   RAID : stockage redondant sur plusieurs disques d'un même hôte       
+    54      •   LVM : agrégation et gestion flexible des volumes de stockage
+
+Administrateur@RT107-32 MINGW64 /e/mylaptop/CDesktop/offline/prepmai/bot_synthesis_augustin/pdfscraper-augustin (master)                                                  gustin/pdfscraper-augustin (master)
+$ history

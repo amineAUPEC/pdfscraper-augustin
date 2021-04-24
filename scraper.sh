@@ -45,7 +45,15 @@ grep_creez=$(cat res.txt | grep "creez")
 grep_ajoutez=$(cat res.txt | grep "ajoutez")
 grep_ajouter=$(cat res.txt | grep "ajouter")
 grep_star=$(cat "res.txt" )
-# cat res.txt | grep "*"
+# cat res.txt | grep "*" |
+
+
+
+# diff_start_line_to_synth1=$((322-48))
+diff_start_line_to_synth1=$(( $(( $grep_synth1_line ))- $(( $grep_start_line )) ))
+echo $diff_start_line_to_synth1
+
+# cat res.txt | head -n  
 
 
 
