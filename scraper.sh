@@ -28,6 +28,10 @@ output_file="output.txt"
 
 output_debug="debug.txt"
 
+directory_output="./gen/"
+
+
+
 grep_synth1=$(cat -n res.txt | grep "Synthèse 1 :" )
 grep_synth2=$(cat -n res.txt | grep "Synthèse 2 :" )
 
@@ -74,6 +78,49 @@ cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_lin
 echo "ajouter synth1 : "
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajouter" 
 
+
+# synthèse  1 original files with cat -n  genfile
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "*" > $directory_output/grep_star_synth1.txt
+
+
+echo "modifiez synth1 : genfile1 : "
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep modifiez > $directory_output/grep_modifiez_synth1.txt
+echo "creez synth1 : genfile1 : "
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "creez" > $directory_output/grep_creez_synth1.txt
+echo "ajoutez synth1 : genfile1 : "
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajoutez" > $directory_output/grep_ajoutez_synth1.txt
+echo "ajouter synth1 : genfile1 : "
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajouter" > $directory_output/grep_ajouter_synth1.txt
+
+
+
+
+# synthèse  1 for debug genfile
+echo "synth1 debug genfile"
+cat $directory_output/grep_*_synth1.txt | cut -f 5- -d ' '
+
+
+
+# sorting synth 1: 
+
+echo "sorting synth1 "
+cat $directory_output/grep_*_synth1.txt | sort 
+
+# sorting synth 1 for sed : 
+
+echo "sorting synth1 for sed "
+cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' '
+# sorting synth 1 for sed gen file : 
+
+echo "sorting synth1 for sed gensedfile "
+cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth1.txt
+
+# synthèse  1 files for sed  of gensedfile
+
+
+
+
+
 # to do remove headers before random lines selection
 # to add -> Random line selection between the range
 
@@ -99,7 +146,7 @@ cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_lin
 
 
 # $grep_modifiez
-cat res.txt | grep modifiez
+# cat res.txt | grep modifiez
 # $($grep_modifiez)
 # echo $?
 # if [ $? -eq 0 ]
