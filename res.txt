@@ -1,0 +1,468 @@
+                          TP N°1
+
+                         SUJET :
+
+                    STOCKAGE LOCAL :
+                      RAID ET LVM
+
+
+
+                          UE 3.2
+                SURETÉ DE FONCTIONNEMENT
+
+
+
+           BRICE AUGUSTIN ET SAMI SOUIHI
+
+
+Durée : 3 heures
+
+
+
+
+                                                                      Création : 03/2012
+Version : 2.4           Révisions : 03/2016, 10/2016, 03/2017, 05/2018, 05/2019, 05/2020
+TP RAID et LVM                                          N°1
+
+
+Sommaire
+
+1.     INTRODUCTION                                            3
+
+2.     REDONDANCE DE DISQUES (RAID)                            3
+2.1.    INSTALLATION D'UNE DEBIAN EN RAID                      4
+2.2.    DEFAILLANCE ET REMPLACEMENT D’UN DISQUE                7
+2.3.    ADMINISTRATION DES VOLUMES RAID                        8
+
+3.     LOGICAL VOLUME MANAGER (LVM)                            10
+3.1.    CREATION D’UN LV                                       10
+3.2.    EXTENSION D’UN VOLUME LOGIQUE                          11
+
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil   2/14
+TP RAID et LVM                                                                            N°1
+
+
+1. Introduction
+
+Ce premier TP est consacré à la création d'un serveur de stockage. Vous allez utiliser
+plusieurs techniques de gestion de volumes de stockage locaux (c’est-à-dire, au sein
+d'un même serveur physique) :
+    •   RAID : stockage redondant sur plusieurs disques d'un même hôte
+    •   LVM : agrégation et gestion flexible des volumes de stockage
+
+
+Dans les TP suivants, vous verrez comment rendre ces volumes de stockage
+accessibles en réseau. Vous ferez donc de votre serveur un NAS (network attached
+storage) utilisant les protocoles iSCSI et GlusterFS.
+
+
+
+
+2. Redondance de disques (RAID)
+
+Le RAID (Redundant Array of Independent Disks) permet d’agréger un ensemble de
+disques durs de taille similaire pour obtenir un support de stockage offrant certaines
+propriétés de redondance.
+
+
+Le but de cette partie est d'installer un serveur Debian en utilisant deux modes RAID1 :
+RAID 1 et RAID 5.
+
+
+
+
+1
+  Il existe un grand nombre d'autres modes RAID, chacun offrant un compromis différent entre la
+redondance (nombre de disques pouvant tomber en panne) et la performance (capacité de stockage
+utilisable, débit de lecture/écriture), mais que nous n'aurons pas le temps d'étudier dans ce TP.
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                                    3/14
+TP RAID et LVM                                                               N°1
+
+Pour des raisons techniques (à terme, votre serveur comptera une dizaine de
+disques !), vous travaillerez sur une VM et non pas sur un serveur physique. Sur un
+serveur physique, la démarche que vous allez suivre aurait été exactement la même.
+
+
+La Fig. 1 illustre l'organisation des trois disques de votre serveur.
+
+
+
+
+                         Fig. 1 Partitionnement de vos disques
+
+
+2.1.    Installation d'une Debian en RAID
+
+Pour réaliser l'installation, vous aurez besoin d'une image ISO* de Debian
+Netinstall.
+
+
+Créez une VM VirtualBox avec les caractéristiques suivantes :
+    •   Nom : Storage1
+    •   3 disques durs SATA de capacité identique (au moins 8 Go)
+    •   Une carte Ethernet en mode Accès par pont
+
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                       4/14
+TP RAID et LVM                                                               N°1
+
+Lancez une installation 'standard' jusqu'à l'étape de partitionnement.
+
+
+Quand vous aurez atteint l'étape de partitionnement, choisissez Partitionner les
+disques – Manuel. Le partitionnement se déroule en trois étapes, que nous
+détaillons dans la suite :
+   1. Création de la table des partitions sur chaque disque
+   2. Création des volumes RAID
+   3. Attribution du point de montage et formatage des volumes
+
+
+Pour chacun des trois disques, créez une Nouvelle table des partitions
+contenant deux partitions :
+
+
+          Partition           Taille       Utilisation
+
+                                           Volume physique pour RAID, avec
+          Primaire 1          1 Go         indicateur d'amorçage
+
+          Primaire 2          Reste        Volume physique pour RAID
+
+
+
+La Fig. 2 illustre le partitionnement obtenu à l'issue de cette étape.
+
+
+
+
+                       Fig. 2 Table des partitions des trois disques
+
+
+Après le partitionnement, il faut configurer le RAID sur les disques. Pour cela,
+sélectionnez Configurer le RAID avec gestion logicielle et configurez
+deux périphériques RAID comme indiqué dans le Tableau 1.
+
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                        5/14
+TP RAID et LVM                                                                    N°1
+
+
+            Périphérique       RAID Actifs                         Réserve
+
+            N° 0               1       sda1, sdb1                  sdc1
+
+            N° 1               5       sda2, sdb2,sdc2             Aucun
+
+
+
+                         Tableau 1 Périphériques RAID à créer
+
+
+Il s'agit donc de créer un premier périphérique multidisque en RAID 1, avec deux
+périphériques actifs (sda1 et sdb1) et un de réserve (sdc1), puis un second avec des
+caractéristiques différentes.
+
+
+
+
+                             Fig. 3 Les deux volumes RAID
+
+
+Sur l’écran récapitulant l'organisation des disques (Fig. 3), configurez les espaces de
+stockage disponibles sous les périphériques RAID n°0 et n°1, comme indiqué dans le
+Tableau 2.
+
+
+     Périphérique      Utilisation                           Point de montage
+
+     N° 0              Système de fichiers ext4              /boot
+
+     N° 1              Système de fichiers ext4              /
+
+
+                       Tableau 2 Formatage et point de montage
+
+
+L'organisation de vos disques est prête ! Elle doit être similaire à la Fig. 4.
+
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                             6/14
+TP RAID et LVM                                                                  N°1
+
+
+                      Fig. 4 Formatage des deux volumes RAID en ext4
+
+
+Validez le partitionnement et appliquez les changements.
+
+
+Enfin, terminez l'installation de l'OS avec le 'minimum syndical' :
+      •   Pas de swap
+      •   Sélection des logiciels : aucun
+      •   Installez grub sur le disque sda
+
+
+
+
+Démarrez votre serveur de stockage fraichement installé et vérifiez que les volumes
+RAID sont bien configurés. Pour cela, vous pouvez affichez leurs propriétés* ainsi que
+leur taille* .
+Pour rappel, les volumes RAID sont nommés /dev/md[0-9]+ sous Linux …
+
+
+2.2.      Défaillance et remplacement d’un disque
+
+Dans cette partie, vous allez simuler la panne du second disque dur (sdb), détecter
+cette panne et la réparer.
+
+
+Pour simuler la panne, une solution simple consiste à effacer le contenu du disque.
+
+
+Arrêtez Storage1 et débranchez2 son second disque. Importez* une VM Debian
+Stretch. Il s'agit d'une VM jetable, que vous utiliserez uniquement pour détruire les
+données du disque et que vous supprimerez juste après.
+
+
+
+
+2
+    Virtuellement …
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                          7/14
+TP RAID et LVM                                                                  N°1
+
+Branchez le disque (en plus du disque principal) sur la VM jetable et démarrez-la.
+
+
+Comme ce disque n'est pas référencé dans son fstab, l'OS ne monte pas les
+partitions qu'il contient. On peut alors détruire les données du disque avec la
+commande suivante :
+
+
+       dd if=/dev/zero of=/dev/sdb2 bs=1k
+
+
+Après la destruction des données, débarassez-vous de la VM jetable : vous n'en aurez
+plus besoin.
+
+
+Redémarrez Storage1. Vous constaterez que le serveur démarre toujours, malgré
+l'effacement complet de son second disque !
+Pour comprendre pourquoi, inspectez ses logs* et affichez les propriétés des volumes
+RAID*.
+
+
+
+Supposons maintenant que vous avez remplacé le disque défectueux par un disque
+neuf. Dans votre maquette, il suffit de rebrancher le disque dont vous avez effacé les
+données.
+Ajouter ce disque* au volume RAID 5.
+
+
+Affichez l'état des volumes RAID* et visualisez en continu* sa reconstruction. Cette
+dernière ne prend que quelques minutes sur votre maquette, mais elle peut être
+beaucoup plus longue sur de plus gros disques …
+
+
+2.3.   Administration des volumes RAID
+
+Supposons à présent que vous souhaitiez ajouter un espace de stockage
+supplémentaire sur Storage1. Vous allez donc créer un troisième volume RAID,
+composé de trois nouveaux disques durs.
+
+
+Ajoutez trois disques SATA de 8 Go sur votre serveur. Attention, vous ne pouvez pas
+le faire à chaud …
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                          8/14
+TP RAID et LVM                                                                  N°1
+
+Déterminez le nom de ces trois nouveaux disques dans le système. Pour cela, vous
+pouvez par exemple afficher la table des partitions de tous les disques*.
+
+Lancez la création de ce volume* (en RAID 5), puis visualisez en continu* sa
+construction. Quand l'initialisation du volume est terminée, redémarrez votre VM.
+
+
+Vous constaterez que votre nouveau volume RAID a disparu ! Recréez le volume, puis
+rendez la configuration RAID persistante*.
+
+
+
+
+Votre nouveau volume RAID est maintenant persistant, mais vous ne pouvez toujours
+pas y stocker de données ! Pour cela, vous devez :
+    •   Le formater*.
+        Utilisez le système de fichiers ext4
+    •   Le monter* dans l'arborescence globale.
+        Utilisez le dossier /mnt/data/ comme point de montage
+
+
+
+
+Créez quelques fichiers sur ce volume de stockage, et vérifiez qu'ils ne sont plus
+accessibles lorsque vous démontez* le volume.
+
+
+
+
+ Synthèse 1 : Résumez en 4-6 lignes ce que vous avez fait depuis le début du TP.
+ Appelez votre chargé de TP pour lui faire une démonstration de votre maquette.
+
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                          9/14
+TP RAID et LVM                                                                     N°1
+
+
+3. Logical Volume Manager (LVM)
+
+Chaque volume RAID est géré et monté indépendamment des autres. A terme, votre
+serveur de stockage disposera donc de plusieurs volumes hétérogènes (taille et
+contenu différents). A chaque fois que vous voudrez stocker un nouveau fichier, vous
+devrez choisir spécifiquement l'un ou l'autre. Ce n'est pas très pratique …
+LVM va vous permettre d'agréger tous ces volumes et de les gérer de façon flexible,
+sans vous préoccuper de l'organisation sous-jacente.
+
+
+Dans cette partie, vous allez créer un premier volume logique (LV) sur le dernier
+volume RAID que vous avez créé, puis vous l'agrandirez.
+
+
+3.1.   Création d’un LV
+
+La méthode de création d'un LV reflète l'architecture LVM : un LV doit être 'taillé' dans
+un VG, lui-même reposant sur un ou plusieurs PV.
+Dans un premier temps, vous devez donc déclarer les PV à utiliser. Pour l’instant, vous
+allez en utiliser un seul : le volume RAID /dev/md2. Initialisez ce volume en tant que
+PV*.
+
+
+
+
+                     Fig. 5 Création d'un LV dans le volume RAID
+
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                             10/14
+TP RAID et LVM                                                                     N°1
+
+Définissez ensuite un VG* nommé vgstockage. Pour l’instant votre VG est composé
+d’un unique PV (vous ajouterez d'autres PV un peu plus tard) :
+
+
+Vous pouvez enfin créer un premier LV* nommé lvstockage et utilisant 75% de
+l'espace du VG (Fig. 5).
+
+
+Comme pour une partition classique, avant de stocker des données sur le LV, vous
+devez :
+    •   Le formater* en ext4
+    •   Le monter dans l'arborescence globale. Configurez un montage persistant*.
+        Pour cela, vous aurez besoin de l'identifiant du LV dans l'OS, qui est :
+
+              /dev/vgstockage/lvstockage
+
+
+3.2.    Extension d’un volume logique
+
+L'avantage de LVM est sa grande flexibilité. Par exemple, si l'on finit par manquer
+d'espace sur lvstockage, quelques commandes suffiront pour l'agrandir. Le système
+ira 'piocher', de manière transparente, dans l'espace de stockage inutilisé du VG, et ce
+indépendamment de sa localisation sur le volume physique.
+
+
+Vérifiez cela en augmentant la taille du LV lvstockage pour qu'il utilise la totalité du
+VG (Fig. 6).
+
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                              11/14
+TP RAID et LVM                                                                    N°1
+
+
+
+
+                        Fig. 6 Augmentation de la taille du LV
+
+
+On souhaite maintenant augmenter la capacité de lvstockage. Comme le VG
+correspondant est plein, vous devez déjà agrandir ce dernier.
+Pour cela, nous vous proposons d'ajouter un nouveau (et quatrième !) volume RAID
+sur votre serveur. La figure 7 illustre la nouvelle structure de votre LV. On observe le
+VG vgstockage maintenant composé de deux PV (md2 et le nouveau, md3), et le LV
+(lvstockage) qui s'étend sur les deux PV.
+
+
+
+
+            Fig. 7 Structure du LV après ajout d'un second volume RAID
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                            12/14
+TP RAID et LVM                                                                      N°1
+
+Ajoutez trois nouveaux disques durs SATA dans votre VM et lancez la création d'un
+nouveau volume* (en RAID 5).
+
+
+Initialisez ce volume en tant que PV*, puis ajoutez* ce dernier dans le VG
+vgstockage.
+
+
+Enfin, augmentez la capacité du LV* : ajoutez-lui 4 Go supplémentaires.
+
+
+Le LV possède à présent 4 Go de stockage en plus, mais le système de fichiers qui
+l'organise ne le sait pas (encore). Comparez la taille du LV* et celle de la partition*
+existant sur ce LV : comme dans la Fig. 8, vous observez que système de fichiers
+actuels ne couvre pas la totalité du LV.
+
+
+
+
+                   Fig. 8 Le filesystem n'occupe pas la totalité du LV
+
+
+
+Pour utiliser la totalité de l’espace du LV, vous devez étendre son système de fichiers*.
+Après cette opération, vérifiez que la totalité de l’espace de stockage est bien utilisée
+par le système de fichier.
+
+
+Affichez les propriétés du VG* pour vérifier qu'il lui reste encore de l'espace non alloué.
+
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                              13/14
+TP RAID et LVM                                                                 N°1
+
+
+
+ Synthèse 2 : Résumez en 4-6 lignes ce que vous avez fait depuis la dernière
+ synthèse.
+ Appelez votre chargé de TP pour lui faire une démonstration de votre maquette.
+
+
+
+
+B. Augustin, S. Souihi – Université Paris-Est Créteil                          14/14
+

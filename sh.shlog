@@ -1,0 +1,33 @@
+Administrateur@RT107-32 MINGW64 /e/mylaptop/CDesktop/offline/prepmai/bot_synthesis_augustin
+$ sort -u res.txt
+
+Validez le partitionnement et appliquez les changements.
+Vérifiez cela en augmentant la taille du LV lvstockage pour qu'il utilise la totalité du
+Version : 2.4           Révisions : 03/2016, 10/2016, 03/2017, 05/2018, 05/2019, 05/2020
+VG (Fig. 6).
+VG vgstockage maintenant composé de deux PV (md2 et le nouveau, md3), et le LV
+vgstockage.
+volume RAID que vous avez créé, puis vous l'agrandirez.
+Votre nouveau volume RAID est maintenant persistant, mais vous ne pouvez toujours
+Vous constaterez que votre nouveau volume RAID a disparu ! Recréez le volume, puis
+Vous pouvez enfin créer un premier LV* nommé lvstockage et utilisant 75% de
+
+
+
+
+
+Administrateur@RT107-32 MINGW64 /e/mylaptop/CDesktop/offline/prepmai/bot_synthesis_augustin
+$ cat -n res.txt | grep "B. Augustin, S. Souihi – Université Paris-Est Créteil" 
+    44  B. Augustin, S. Souihi – Université Paris-Est Créteil   2/14
+    83  B. Augustin, S. Souihi – Université Paris-Est Créteil                                    3/14
+   113  B. Augustin, S. Souihi – Université Paris-Est Créteil                       4/14
+   155  B. Augustin, S. Souihi – Université Paris-Est Créteil                        5/14
+   200  B. Augustin, S. Souihi – Université Paris-Est Créteil                             6/14
+   243  B. Augustin, S. Souihi – Université Paris-Est Créteil                          7/14
+   290  B. Augustin, S. Souihi – Université Paris-Est Créteil                          8/14
+   328  B. Augustin, S. Souihi – Université Paris-Est Créteil                          9/14
+   362  B. Augustin, S. Souihi – Université Paris-Est Créteil                             10/14
+   396  B. Augustin, S. Souihi – Université Paris-Est Créteil                              11/14
+   419  B. Augustin, S. Souihi – Université Paris-Est Créteil                            12/14
+   455  B. Augustin, S. Souihi – Université Paris-Est Créteil                              13/14
+   467  B. Augustin, S. Souihi – Université Paris-Est Créteil                          14/14
