@@ -243,11 +243,11 @@ cat $directory_output/sed_genfil_synth2.txt
 
 
 # combining these synth files but before removing it
-rm -rf >> $directory_output/s$file_output_merged
+rm -rf >> $directory_output/$file_output_merged
 
 
 echo "combining synth1 : "
-echo "synth1: " > $directory_output/sed_genfile_merged.txt
+echo "synth1: " > $directory_output/$file_output_merged
 cat $directory_output/sed_genfil_synth1.txt  >> $directory_output/$file_output_merged
 
 
@@ -259,7 +259,7 @@ cat $directory_output/sed_genfil_synth2.txt  >> $directory_output/$file_output_m
 echo "cat merged file : "
 cat $directory_output/$file_output_merged
 
-echo "merged at cat $directory_output"sed_genfile_merged.txt" "
+echo "merged at cat $directory_output"$file_output_merged" "
 # to do
 # to add more synthesis
 # to add synthesis 1 dupliacte as synthesis1 bis
