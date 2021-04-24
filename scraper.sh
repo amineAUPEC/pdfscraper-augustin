@@ -54,8 +54,10 @@ echo $diff_start_line_to_synth1
 
 # cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 ))
 
+
 # to do variabilize ; file separate
 # to do concatenate all files by synthesis
+# sed over synth files
 
 
 
@@ -63,14 +65,16 @@ echo $diff_start_line_to_synth1
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "*" 
 
 
-
+echo "modifiez synth1 : "
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep modifiez 
+echo "creez synth1 : "
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "creez" 
+echo "ajoutez synth1 : "
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajoutez" 
-echo ""
+echo "ajouter synth1 : "
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajouter" 
 
-
+# to do remove headers before random lines selection
 # to add -> Random line selection between the range
 
 
