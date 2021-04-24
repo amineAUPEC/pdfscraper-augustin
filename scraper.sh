@@ -132,6 +132,10 @@ sed 's/*/ /g' -i $directory_output/sed_genfil_synth1.txt
 
 # synthèse  1 files cat for sed  of gensedfile
 echo "cat replaced by sed synth1 for gensedfile "
+cat $directory_output/sed_genfil_synth1.txt | uniq > $directory_output/sed_genfil_synth1.txt
+
+# synthèse  1 files cat for sed  of gensedfile
+echo "cat replaced by sed synth1 for gensedfile "
 cat $directory_output/sed_genfil_synth1.txt
 
 # to do remove headers before random lines selection
@@ -181,7 +185,7 @@ cat $directory_output/grep_*_synth2.txt | cut -f 5- -d ' '
 echo "sorting synth2 "
 cat $directory_output/grep_*_synth2.txt | sort 
 
-# sorting synth 2 for sed : 
+sorting synth 2 for sed by removing line column : 
 
 echo "sorting synth2 for sed "
 cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' '
@@ -199,6 +203,11 @@ sed 's/creez/, on a créé/g' -i $directory_output/sed_genfil_synth2.txt
 sed 's/ajoutez/, on a ajouté/g' -i $directory_output/sed_genfil_synth2.txt
 sed 's/ajouter/, on a ajouté/g' -i $directory_output/sed_genfil_synth2.txt
 sed 's/*/ /g' -i $directory_output/sed_genfil_synth2.txt
+
+# synthèse  2 files cat for sed  of gensedfile : removing duplicate lines
+echo "cat replaced by sed synth2 for gensedfile : removing duplicate lines"
+cat $directory_output/sed_genfil_synth2.txt | uniq > $directory_output/sed_genfil_synth2.txt
+
 
 # synthèse  2 files cat for sed  of gensedfile
 echo "cat replaced by sed synth2 for gensedfile "
