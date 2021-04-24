@@ -14,7 +14,7 @@ la configuration RAID persistante .
    •   Le formater .
    •   Le monter  dans l'arborescence globale.
 lorsque vous démontez  le volume.
-  
+ 
 synth2: 
 
 ensuite un VG  nommé vgstockage. Pour l’instant votre VG est composé

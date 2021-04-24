@@ -53,6 +53,14 @@ file_grep_ajoutez_synth1="grep_ajoutez_synth1.txt"
 file_grep_ajouter_synth1="grep_ajouter_synth1.txt"
 
 
+# grep part synth2
+file_grep_star_synth2="grep_star_synth2.txt"
+file_grep_modifiez_synth2="grep_modifiez_synth2.txt"
+file_grep_creez_synth2="grep_creez_synth2.txt"
+file_grep_ajoutez_synth2="grep_ajoutez_synth2.txt"
+file_grep_ajouter_synth2="grep_ajouter_synth2.txt"
+
+
 
 
 
@@ -88,9 +96,6 @@ echo $diff_start_line_to_synth2
 # cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 ))
 
 
-# to do variabilize ; file separate
-# to do concatenate all files by synthesis
-# sed over synth files -> done
 
 
 
@@ -109,17 +114,17 @@ cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_lin
 
 
 # synthèse  1 original files with cat -n  genfile
-cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "*" > $directory_output/grep_star_synth1.txt
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "*" > $directory_output/$file_grep_star_synth1
 
 
 echo "modifiez synth1 : genfile1 : "
-cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep modifiez > $directory_output/grep_modifiez_synth1.txt
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep modifiez > $directory_output/$file_grep_modifiez_synth1
 echo "creez synth1 : genfile1 : "
-cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "creez" > $directory_output/grep_creez_synth1.txt
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "creez" > $directory_output/$file_grep_creez_synth1
 echo "ajoutez synth1 : genfile1 : "
-cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajoutez" > $directory_output/grep_ajoutez_synth1.txt
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajoutez" > $directory_output/$file_grep_ajoutez_synth1
 echo "ajouter synth1 : genfile1 : "
-cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajouter" > $directory_output/grep_ajouter_synth1.txt
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajouter" > $directory_output/$file_grep_ajouter_synth1
 
 
 
@@ -142,28 +147,26 @@ cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' '
 # sorting synth 1 for sed gen file : 
 
 echo "sorting synth1 for sed gensedfile "
-cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth1_backup.txt
-cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth1.txt
+cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' ' > $directory_output/$file_output_backup_synth1
+cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' ' > $directory_output/$file_output_synth1
 
 # synthèse  1 files for sed  of gensedfile
 echo "replacing by sed synth1 for gensedfile "
 
-sed 's/modifiez/on a modifié/g' -i $directory_output/sed_genfil_synth1.txt
-sed 's/creez/, on a créé/g' -i $directory_output/sed_genfil_synth1.txt
-sed 's/ajoutez/, on a ajouté/g' -i $directory_output/sed_genfil_synth1.txt
-sed 's/ajouter/, on a ajouté/g' -i $directory_output/sed_genfil_synth1.txt
-sed 's/*/ /g' -i $directory_output/sed_genfil_synth1.txt
+sed 's/modifiez/on a modifié/g' -i $directory_output/$file_output_synth1
+sed 's/creez/, on a créé/g' -i $directory_output/$file_output_synth1
+sed 's/ajoutez/, on a ajouté/g' -i $directory_output/$file_output_synth1
+sed 's/ajouter/, on a ajouté/g' -i $directory_output/$file_output_synth1
+sed 's/*/ /g' -i $directory_output/$file_output_synth1
 
 # synthèse  1 files cat for sed  of gensedfile
 echo "cat replaced by sed synth1 for gensedfile "
-cat $directory_output/sed_genfil_synth1.txt | uniq > $directory_output/sed_genfil_synth1.txt
+cat $directory_output/$file_output_synth1 | uniq > $directory_output/$file_output_synth1
 
 # synthèse  1 files cat for sed  of gensedfile
 echo "cat replaced by sed synth1 for gensedfile "
-cat $directory_output/sed_genfil_synth1.txt
+cat $directory_output/$file_output_synth1
 
-# to do remove headers before random lines selection
-# to add -> Random line selection between the range
 
 
 
@@ -182,18 +185,19 @@ echo "ajouter synth2 : "
 cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "ajouter" 
 
 
+
 # synthèse  2 original files with cat -n  genfile
-cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "*" > $directory_output/grep_star_synth2.txt
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "*" > $directory_output/$file_grep_star_synth2
 
 
 echo "modifiez synth2 : genfile2 : "
-cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep modifiez > $directory_output/grep_modifiez_synth2.txt
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep modifiez > $directory_output/$file_grep_modifiez_synth2
 echo "creez synth2 : genfile2 : "
-cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "creez" > $directory_output/grep_creez_synth2.txt
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "creez" > $directory_output/$file_grep_creez_synth2
 echo "ajoutez synth2 : genfile2 : "
-cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "ajoutez" > $directory_output/grep_ajoutez_synth2.txt
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "ajoutez" > $directory_output/$file_grep_ajoutez_synth2
 echo "ajouter synth2 : genfile2 : "
-cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "ajouter" > $directory_output/grep_ajouter_synth2.txt
+cat -n res.txt | head -n $(( $grep_synth2_line ))  | tail -n $(( $diff_start_line_to_synth2 )) | grep "ajouter" > $directory_output/$file_grep_ajouter_synth2
 
 
 
@@ -216,7 +220,7 @@ cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' '
 # sorting synth 2 for sed gen file : 
 
 echo "sorting synth2 for sed gensedfile "
-cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth2_backup.txt
+cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' ' > $directory_output/$file_output_backup_synth2
 cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth2.txt
 
 # synthèse  2 files for sed  of gensedfile
@@ -239,23 +243,37 @@ cat $directory_output/sed_genfil_synth2.txt
 
 
 # combining these synth files but before removing it
-rm -rf >> $directory_output/sed_genfile_merged.txt
+rm -rf >> $directory_output/s$file_output_merged
 
 
 echo "combining synth1 : "
 echo "synth1: " > $directory_output/sed_genfile_merged.txt
-cat $directory_output/sed_genfil_synth1.txt  >> $directory_output/sed_genfile_merged.txt
+cat $directory_output/sed_genfil_synth1.txt  >> $directory_output/$file_output_merged
 
 
 echo "combining synth2 : "
-echo " " >> $directory_output/sed_genfile_merged.txt
-echo "synth2: " >> $directory_output/sed_genfile_merged.txt
-cat $directory_output/sed_genfil_synth2.txt  >> $directory_output/sed_genfile_merged.txt
+echo " " >> $directory_output/$file_output_merged
+echo "synth2: " >> $directory_output/$file_output_merged
+cat $directory_output/sed_genfil_synth2.txt  >> $directory_output/$file_output_merged
 
 echo "cat merged file : "
-cat $directory_output/sed_genfile_merged.txt
-
+cat $directory_output/$file_output_merged
 
 echo "merged at cat $directory_output"sed_genfile_merged.txt" "
-
+# to do
 # to add more synthesis
+# to add synthesis 1 dupliacte as synthesis1 bis
+# to add support for ignore case for grep and for sed ignore
+# to add more pattern to grep and sed
+# to add more pattern regex to found all verbs
+
+
+# ------------------------------
+# to do variabilize ; file separate
+# to do concatenate all files by synthesis
+# sed over synth files -> done
+
+
+# to do remove headers before random lines selection
+# to add -> Random line selection between the range
+# to add random lines selection
