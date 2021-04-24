@@ -54,6 +54,11 @@ echo $diff_start_line_to_synth1
 
 # cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 ))
 
+# to do variabilize ; file separate
+# to do concatenate all files by synthesis
+
+
+
 # synthèse  1
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "*" 
 
@@ -62,8 +67,16 @@ cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_lin
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep modifiez 
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "creez" 
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajoutez" 
+echo ""
 cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajouter" 
 
+
+# to add -> Random line selection between the range
+
+
+
+
+# synthèse  2
 
 
 
