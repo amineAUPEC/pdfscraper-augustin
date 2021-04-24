@@ -138,17 +138,17 @@ cat $directory_output/grep_*_synth1.txt | cut -f 5- -d ' '
 # sorting synth 1: 
 
 echo "sorting synth1 "
-cat $directory_output/$file_output_grep_star_synth1 | sort 
+cat $directory_output/grep_*_synth1.txt | sort 
 
 # sorting synth 1 for sed : 
 
 echo "sorting synth1 for sed "
-cat $directory_output/$file_output_grep_star_synth1 | sort | cut -f 5- -d ' '
+cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' '
 # sorting synth 1 for sed gen file : 
 
 echo "sorting synth1 for sed gensedfile "
-cat $directory_output/$file_output_grep_star_synth1 | sort | cut -f 5- -d ' ' > $directory_output/$file_output_backup_synth1
-cat $directory_output/$file_output_grep_star_synth1 | sort | cut -f 5- -d ' ' > $directory_output/$file_output_synth1
+cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' ' > $directory_output/$file_output_backup_synth1
+cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' ' > $directory_output/$file_output_synth1
 
 # synthèse  1 files for sed  of gensedfile
 echo "replacing by sed synth1 for gensedfile "
@@ -160,8 +160,11 @@ sed 's/ajouter/, on a ajouté/g' -i $directory_output/$file_output_synth1
 sed 's/*/ /g' -i $directory_output/$file_output_synth1
 
 # synthèse  1 files cat for sed  of gensedfile
-echo "cat replaced by sed synth1 for gensedfile "
-cat $directory_output/$file_output_synth1 | uniq > $directory_output/$file_output_synth1
+echo "remove duplicate lines : false : synth1"
+# echo "cat replaced by sed synth1 for gensedfile : remove duplicate lines "
+# cat $directory_output/$file_output_synth1 > $directory_output/$file_output_synth1
+# cat $directory_output/$file_output_synth1 | uniq > $directory_output/$file_output_synth1
+# cat $directory_output/$file_output_synth1 | uniq > $directory_output/$file_output_synth1
 
 # synthèse  1 files cat for sed  of gensedfile
 echo "cat replaced by sed synth1 for gensedfile "
@@ -235,6 +238,7 @@ sed 's/*/ /g' -i $directory_output/$file_output_synth2
 # synthèse  2 files cat for sed  of gensedfile : removing duplicate lines
 echo "cat replaced by sed synth2 for gensedfile : removing duplicate lines"
 cat $directory_output/$file_output_synth2 | uniq > $directory_output/$file_output_synth2
+# cat $directory_output/$file_output_synth2 | uniq > $directory_output/$file_output_synth2
 
 
 # synthèse  2 files cat for sed  of gensedfile
