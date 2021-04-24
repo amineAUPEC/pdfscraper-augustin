@@ -214,3 +214,24 @@ echo "cat replaced by sed synth2 for gensedfile "
 cat $directory_output/sed_genfil_synth2.txt
 
 
+# combining these synth files but before removing it
+rm -rf >> $directory_output/sed_genfile_merged.txt
+
+
+echo "combining synth1 : "
+echo "synth1: " > $directory_output/sed_genfile_merged.txt
+cat $directory_output/sed_genfil_synth1.txt  >> $directory_output/sed_genfile_merged.txt
+
+
+echo "combining synth2 : "
+echo " " >> $directory_output/sed_genfile_merged.txt
+echo "synth2: " >> $directory_output/sed_genfile_merged.txt
+cat $directory_output/sed_genfil_synth2.txt  >> $directory_output/sed_genfile_merged.txt
+
+echo "cat merged file : "
+cat $directory_output/sed_genfile_merged.txt
+
+
+echo "merged at cat $directory_output"sed_genfile_merged.txt" "
+
+
