@@ -49,11 +49,10 @@ grep_star=$(cat "res.txt" )
 
 
 
-# diff_start_line_to_synth1=$((322-48))
 diff_start_line_to_synth1=$(( $(( $grep_synth1_line ))- $(( $grep_start_line )) ))
 echo $diff_start_line_to_synth1
 
-# cat res.txt | head -n  
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 ))
 
 
 
