@@ -21,19 +21,19 @@ synthesis=2
 # command_convert_to_txt=$(lesspipe file.pdf | less > res.txt)
 
 
-input_file_txt=$(cat res.txt)
+# input_file_txt=$(cat res.txt)
 input_filetxt="res.txt"
 
-output_file="output.txt"
+# output_file="output.txt"
 
-output_debug="debug.txt"
+# output_debug="debug.txt"
 
 directory_output="./gen/"
 
 
 
-grep_synth1=$(cat -n res.txt | grep "Synthèse 1 :" )
-grep_synth2=$(cat -n res.txt | grep "Synthèse 2 :" )
+# grep_synth1=$(cat -n res.txt | grep "Synthèse 1 :" )
+# grep_synth2=$(cat -n res.txt | grep "Synthèse 2 :" )
 
 grep_start_line=$(cat -n res.txt | grep "1. Introduction" | tr -s ' ' | cut -f1 | cut -f 2 -d ' ')
 grep_end_line=$(cat -n res.txt | tail -n 1 | tr -s ' ' | cut -f1 | cut -f 2 -d ' ')
@@ -44,11 +44,11 @@ echo $grep_synth1_line
 echo $grep_synth2_line
 
 
-grep_modifiez=$(cat res.txt | grep modifiez)
-grep_creez=$(cat res.txt | grep "creez")
-grep_ajoutez=$(cat res.txt | grep "ajoutez")
-grep_ajouter=$(cat res.txt | grep "ajouter")
-grep_star=$(cat "res.txt" | grep "*" )
+# grep_modifiez=$(cat res.txt | grep modifiez)
+# grep_creez=$(cat res.txt | grep "creez")
+# grep_ajoutez=$(cat res.txt | grep "ajoutez")
+# grep_ajouter=$(cat res.txt | grep "ajouter")
+# grep_star=$(cat "res.txt" | grep "*" )
 # cat res.txt | grep "*" |
 
 
@@ -58,7 +58,7 @@ echo $diff_start_line_to_synth1
 
 
 #  synthèse 2 calc
-diff_start_line_to_synth1=$(( $(( $grep_synth2_line ))- $(( $grep_start_line )) ))
+diff_start_line_to_synth2=$(( $(( $grep_synth2_line ))- $(( $grep_synth1_line )) ))
 echo $diff_start_line_to_synth2
 
 # cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 ))
@@ -203,3 +203,5 @@ sed 's/*/ /g' -i $directory_output/sed_genfil_synth2.txt
 # synthèse  2 files cat for sed  of gensedfile
 echo "cat replaced by sed synth2 for gensedfile "
 cat $directory_output/sed_genfil_synth2.txt
+
+

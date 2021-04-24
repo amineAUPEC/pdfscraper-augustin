@@ -1,0 +1,2 @@
+   426	Initialisez ce volume en tant que PV*, puis ajoutez* ce dernier dans le VG
+   430	Enfin, augmentez la capacité du LV* : ajoutez-lui 4 Go supplémentaires.
