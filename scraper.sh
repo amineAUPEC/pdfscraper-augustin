@@ -113,13 +113,21 @@ cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' '
 # sorting synth 1 for sed gen file : 
 
 echo "sorting synth1 for sed gensedfile "
+cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth1_backup.txt
 cat $directory_output/grep_*_synth1.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth1.txt
 
 # synthèse  1 files for sed  of gensedfile
+echo "replacing by sed synth1 for gensedfile "
 
+sed 's/modifiez/on a modifié/g' -i $directory_output/sed_genfil_synth1.txt
+sed 's/creez/, on a créé/g' -i $directory_output/sed_genfil_synth1.txt
+sed 's/ajoutez/, on a ajouté/g' -i $directory_output/sed_genfil_synth1.txt
+sed 's/ajouter/, on a ajouté/g' -i $directory_output/sed_genfil_synth1.txt
+sed 's/*/ /g' -i $directory_output/sed_genfil_synth1.txt
 
-
-
+# synthèse  1 files cat for sed  of gensedfile
+echo "cat replaced by sed synth1 for gensedfile "
+cat $directory_output/sed_genfil_synth1.txt
 
 # to do remove headers before random lines selection
 # to add -> Random line selection between the range
