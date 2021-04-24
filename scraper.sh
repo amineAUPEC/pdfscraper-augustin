@@ -30,6 +30,25 @@ input_filetxt="res.txt"
 
 directory_output="./gen/"
 
+# file output of synthesis for sed
+file_output_synth1="sed_genfil_synth1.txt"
+file_output_synth2="sed_genfil_synth2.txt"
+file_output_merged="sed_genfile_merged.txt"
+
+
+# file output of synthesis backup original
+file_output_backup_synth1="sed_genfil_synth1_backup.txt"
+file_output_backup_synth2="sed_genfil_synth2_backup.txt"
+
+# grep part synth1
+file_grep_star_synth1="grep_star_synth1.txt"
+file_grep_modifiez_synth1="grep_modifiez_synth1.txt"
+file_grep_creez_synth1="grep_creez_synth1.txt"
+file_grep_ajoutez_synth1="grep_ajoutez_synth1.txt"
+file_grep_ajouter_synth1="grep_ajouter_synth1.txt"
+
+
+
 
 
 # grep_synth1=$(cat -n res.txt | grep "Synthèse 1 :" )
@@ -234,4 +253,4 @@ cat $directory_output/sed_genfile_merged.txt
 
 echo "merged at cat $directory_output"sed_genfile_merged.txt" "
 
-
+# to add more synthesis
