@@ -40,6 +40,11 @@ file_output_merged="sed_genfile_merged.txt"
 file_output_backup_synth1="sed_genfil_synth1_backup.txt"
 file_output_backup_synth2="sed_genfil_synth2_backup.txt"
 
+
+# file output of synthesis grep star of all genfiles
+file_output_grep_star_synth1="grep_*_synth1.txt"
+file_output_grep_star_synth2="grep_*_synth2.txt"
+
 # grep part synth1
 file_grep_star_synth1="grep_star_synth1.txt"
 file_grep_modifiez_synth1="grep_modifiez_synth1.txt"
