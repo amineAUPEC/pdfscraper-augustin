@@ -28,8 +28,8 @@ output_file="output.txt"
 
 output_debug="debug.txt"
 
-grep_synth1_line=$(cat -n res.txt | grep "Synthèse 1 :" )
-grep_synth2_line=$(cat -n res.txt | grep "Synthèse 2 :" )
+grep_synth1=$(cat -n res.txt | grep "Synthèse 1 :" )
+grep_synth2=$(cat -n res.txt | grep "Synthèse 2 :" )
 
 grep_start_line=$(cat -n res.txt | grep "1. Introduction" | tr -s ' ' | cut -f1 | cut -f 2 -d ' ')
 grep_end_line=$(cat -n res.txt | tail -n 1 | tr -s ' ' | cut -f1 | cut -f 2 -d ' ')
@@ -51,11 +51,12 @@ grep_star=$(cat "res.txt" )
 
 
 # cat res.txt | grep "*"
-i=50
-if [ $(( $i )) -gt 48 ]  && [ $(( $i )) -lt 322 ]
+i=350
+if [ $(( $i )) -gt $(( $grep_start_line )) ]  && [ $(( $i )) -lt $(( $grep_synth1_line )) ]
 then
     echo "success"
-
+else 
+    echo "failed"
 fi
 
 
