@@ -221,25 +221,25 @@ cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' '
 
 echo "sorting synth2 for sed gensedfile "
 cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' ' > $directory_output/$file_output_backup_synth2
-cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' ' > $directory_output/sed_genfil_synth2.txt
+cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' ' > $directory_output/$file_output_synth2
 
 # synthèse  2 files for sed  of gensedfile
 echo "replacing by sed synth2 for gensedfile "
 
-sed 's/modifiez/on a modifié/g' -i $directory_output/sed_genfil_synth2.txt
-sed 's/creez/, on a créé/g' -i $directory_output/sed_genfil_synth2.txt
-sed 's/ajoutez/, on a ajouté/g' -i $directory_output/sed_genfil_synth2.txt
-sed 's/ajouter/, on a ajouté/g' -i $directory_output/sed_genfil_synth2.txt
-sed 's/*/ /g' -i $directory_output/sed_genfil_synth2.txt
+sed 's/modifiez/on a modifié/g' -i $directory_output/$file_output_synth2
+sed 's/creez/, on a créé/g' -i $directory_output/$file_output_synth2
+sed 's/ajoutez/, on a ajouté/g' -i $directory_output/$file_output_synth2
+sed 's/ajouter/, on a ajouté/g' -i $directory_output/$file_output_synth2
+sed 's/*/ /g' -i $directory_output/$file_output_synth2
 
 # synthèse  2 files cat for sed  of gensedfile : removing duplicate lines
 echo "cat replaced by sed synth2 for gensedfile : removing duplicate lines"
-cat $directory_output/sed_genfil_synth2.txt | uniq > $directory_output/sed_genfil_synth2.txt
+cat $directory_output/$file_output_synth2 | uniq > $directory_output/$file_output_synth2
 
 
 # synthèse  2 files cat for sed  of gensedfile
 echo "cat replaced by sed synth2 for gensedfile "
-cat $directory_output/sed_genfil_synth2.txt
+cat $directory_output/$file_output_synth2
 
 
 # combining these synth files but before removing it
@@ -248,13 +248,13 @@ rm -rf >> $directory_output/$file_output_merged
 
 echo "combining synth1 : "
 echo "synth1: " > $directory_output/$file_output_merged
-cat $directory_output/sed_genfil_synth1.txt  >> $directory_output/$file_output_merged
+cat $directory_output/$file_output_synth1 >> $directory_output/$file_output_merged
 
 
 echo "combining synth2 : "
 echo " " >> $directory_output/$file_output_merged
 echo "synth2: " >> $directory_output/$file_output_merged
-cat $directory_output/sed_genfil_synth2.txt  >> $directory_output/$file_output_merged
+cat $directory_output/$file_output_synth2 >> $directory_output/$file_output_merged
 
 echo "cat merged file : "
 cat $directory_output/$file_output_merged
