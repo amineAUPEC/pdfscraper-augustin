@@ -44,7 +44,7 @@ grep_modifiez=$(cat res.txt | grep modifiez)
 grep_creez=$(cat res.txt | grep "creez")
 grep_ajoutez=$(cat res.txt | grep "ajoutez")
 grep_ajouter=$(cat res.txt | grep "ajouter")
-grep_star=$(cat "res.txt" )
+grep_star=$(cat "res.txt" | grep "*" )
 # cat res.txt | grep "*" |
 
 
@@ -52,19 +52,23 @@ grep_star=$(cat "res.txt" )
 diff_start_line_to_synth1=$(( $(( $grep_synth1_line ))- $(( $grep_start_line )) ))
 echo $diff_start_line_to_synth1
 
-cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 ))
+# cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 ))
+
+# synthèse  1
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "*" 
+
+
+
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep modifiez 
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "creez" 
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajoutez" 
+cat -n res.txt | head -n $(( $grep_synth1_line ))  | tail -n $(( $diff_start_line_to_synth1 )) | grep "ajouter" 
 
 
 
 
 # cat res.txt | grep "*"
-i=350
-if [ $(( $i )) -gt $(( $grep_start_line )) ]  && [ $(( $i )) -lt $(( $grep_synth1_line )) ]
-then
-    echo "success"
-else 
-    echo "failed"
-fi
+
 
 
 
