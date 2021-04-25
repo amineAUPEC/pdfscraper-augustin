@@ -8,13 +8,13 @@ sed 's/ajouter/, on a ajouté/g' -i $directory_output/$file_output_synth1
 sed 's/*/ /g' -i $directory_output/$file_output_synth1
 
 
-sed 's/réaliser/réalisé/g' -i $directory_output/$file_output_synth1
+sed 's/réaliser/on a réalisé/g' -i $directory_output/$file_output_synth1
 sed 's/aurez/on a/g' -i $directory_output/$file_output_synth1
 sed 's/sont bien configurés/on a bien configuré/g' -i $directory_output/$file_output_synth1
 sed 's/vous pouvez affichez/on affiché/g' -i $directory_output/$file_output_synth1
 sed 's/débranchez2/n a débranché/g' -i $directory_output/$file_output_synth1
 sed 's/Importez/on a importé/g' -i $directory_output/$file_output_synth1
-sed 's/inspectez/on a inspectez/g' -i $directory_output/$file_output_synth1
+sed 's/inspectez/on a inspecté/g' -i $directory_output/$file_output_synth1
 sed 's/affichez/on a affiché/g' -i $directory_output/$file_output_synth1
 sed 's/visualisez/on a visualisé/g' -i $directory_output/$file_output_synth1
 sed 's/afficher/on a affiché/g' -i $directory_output/$file_output_synth1
@@ -23,13 +23,13 @@ sed 's/Le formater/on a formaté/g' -i $directory_output/$file_output_synth1
 sed 's/Le monter/on a monté/g' -i $directory_output/$file_output_synth1
 sed 's/démontez/on a démonté/g' -i $directory_output/$file_output_synth1
 
-réaliser -> réalisé
+réaliser -> on a réalisé
 aurez -> on a
 sont bien configurés -> on a bien configuré
 vous pouvez affichez -> on affiché
 débranchez2-> on a débranché 
 Importez ->   on a importé
-inspectez ->  on a inspectez
+inspectez ->  on a inspecté
 affichez -> on a affiché
 
 visualisez -> on a visualisé
@@ -63,7 +63,9 @@ sed 's/pour vérifier/on a vérifié/g' -i $directory_output/$file_output_synth2
 sed 's/vérifier/on a vérifié/g' -i $directory_output/$file_output_synth2
 sed 's/allouer/on a alloué/g' -i $directory_output/$file_output_synth2
 sed 's/on a ajouté-lui/on lui a ajouté/g' -i $directory_output/$file_output_synth2
-
+sed 's/enfin créé/on a créé/g' -i $directory_output/$file_output_synth2
+sed 's/Le formater/on a formaté/g' -i $directory_output/$file_output_synth2
+sed 's/Le monter/on a monté/g' -i $directory_output/$file_output_synth2
 
 # sed 's///g' -i $directory_output/$file_output_synth2
 
@@ -79,6 +81,7 @@ votre -> notre
 
 
 créer -> créé
+enfin créé -> on a créé
 Configurez -> on a configuré
 augmentez -> on a augmenté
 ne le sait pas -> on ne le savait pas
