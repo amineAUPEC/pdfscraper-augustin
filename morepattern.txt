@@ -43,7 +43,7 @@ pour vérifier -> on a vérifié
 vérifier -> on a vérifié
 allouer -> on a alloué
 
-
+on a ajouté-lui -> on lui a ajouté
 
 ------ ++ for more pattern to grep /sed in the future
 sait pas -> on sait 

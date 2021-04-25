@@ -57,6 +57,19 @@ sed 's/ajoutez/, on a ajouté/g' -i $directory_output/sed_genfil_synth2.txt
 sed 's/ajouter/, on a ajouté/g' -i $directory_output/sed_genfil_synth2.txt
 sed 's/*/ /g' -i $directory_output/sed_genfil_synth2.txt
 
+echo "uniq for duplicate : " $uniq_for_duplicate_synth2
+
+if [ $(($uniq_for_duplicate_synth2)) -ge 2 ]
+then
+    echo "uniq state true"
+    cat $directory_output/$file_output_synth2 | uniq > $directory_output/$file_output_synth2
+else
+    echo "uniq state false"
+fi
+
+
 # synthèse  2 files cat for sed  of gensedfile
 echo "cat replaced by sed synth2 for gensedfile "
 cat $directory_output/sed_genfil_synth2.txt
+
+
