@@ -165,6 +165,22 @@ sed 's/creez/, on a créé/g' -i $directory_output/$file_output_synth1
 sed 's/ajoutez/, on a ajouté/g' -i $directory_output/$file_output_synth1
 sed 's/ajouter/, on a ajouté/g' -i $directory_output/$file_output_synth1
 sed 's/*/ /g' -i $directory_output/$file_output_synth1
+# more pattern for sed : of synth1 :
+sed 's/réaliser/réalisé/g' -i $directory_output/$file_output_synth1
+sed 's/aurez/on a/g' -i $directory_output/$file_output_synth1
+sed 's/sont bien configurés/on a bien configuré/g' -i $directory_output/$file_output_synth1
+sed 's/vous pouvez affichez/on affiché/g' -i $directory_output/$file_output_synth1
+sed 's/débranchez2/n a débranché/g' -i $directory_output/$file_output_synth1
+sed 's/Importez/on a importé/g' -i $directory_output/$file_output_synth1
+sed 's/inspectez/on a inspectez/g' -i $directory_output/$file_output_synth1
+sed 's/affichez/on a affiché/g' -i $directory_output/$file_output_synth1
+sed 's/visualisez//on a visualiség' -i $directory_output/$file_output_synth1
+sed 's/afficher/on a affiché/g' -i $directory_output/$file_output_synth1
+sed 's/la création/on a créé/g' -i $directory_output/$file_output_synth1
+sed 's/Le formater/on a formaté/g' -i $directory_output/$file_output_synth1
+sed 's/Le monter/on a monté/g' -i $directory_output/$file_output_synth1
+sed 's/démontez/on a démonté/g' -i $directory_output/$file_output_synth1
+
 
 # synthèse  1 files cat for sed  of gensedfile
 echo "cat replaced by sed synth1 for gensedfile : remove duplicate lines "
@@ -294,6 +310,14 @@ echo "merged at cat $directory_output"$file_output_merged" "
 # to add support for ignore case for grep and for sed ignore
 # to add more pattern to grep and sed
 # to add more pattern regex to found all verbs
+# ----- 25-04-21
+# Faiblesse 
+# Uniq c -> done
+# Much More pattern grep
+# Grep -A -B if need
+# Search def from memos
+# Use functions
+# replace fews words/verbs by synonyms
 
 
 # ------------------------------
