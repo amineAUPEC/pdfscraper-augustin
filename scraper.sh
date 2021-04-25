@@ -263,6 +263,23 @@ sed 's/creez/, on a créé/g' -i $directory_output/$file_output_synth2
 sed 's/ajoutez/, on a ajouté/g' -i $directory_output/$file_output_synth2
 sed 's/ajouter/, on a ajouté/g' -i $directory_output/$file_output_synth2
 sed 's/*/ /g' -i $directory_output/$file_output_synth2
+# more pattern for sed : of synth1 :
+sed 's/ensuite un VG  nommé vgstockage/ensuite on a nommé un VG en tant que vgstockage/g' -i $directory_output/$file_output_synth2
+sed 's/nommé/on a nommé/g' -i $directory_output/$file_output_synth2
+sed 's/Pour l’instant votre VG est composé/Pour l’instant notre VG est composé de/g' -i $directory_output/$file_output_synth2
+sed 's/votre/notre/g' -i $directory_output/$file_output_synth2
+sed 's/créer/créé/g' -i $directory_output/$file_output_synth2
+sed 's/Configurez/on a configuré/g' -i $directory_output/$file_output_synth2
+sed 's/augmentez/on a augmenté/g' -i $directory_output/$file_output_synth2
+sed 's/ne le sait pas/on ne le savait pas/g' -i $directory_output/$file_output_synth2
+sed 's/Comparez/on a comparé/g' -i $directory_output/$file_output_synth2
+sed 's/utiliser/on a utilisé/g' -i $directory_output/$file_output_synth2
+sed 's/vous devez étendre/on a étendu/g' -i $directory_output/$file_output_synth2
+sed 's/étendre/on a étendu/g' -i $directory_output/$file_output_synth2
+sed 's/pour vérifier/on a vérifié/g' -i $directory_output/$file_output_synth2
+sed 's/vérifier/on a vérifié/g' -i $directory_output/$file_output_synth2
+sed 's/allouer/on a alloué/g' -i $directory_output/$file_output_synth2
+sed 's/on a ajouté-lui/on lui a ajouté/g' -i $directory_output/$file_output_synth2
 
 # synthèse  2 files cat for sed  of gensedfile : removing duplicate lines
 echo "cat replaced by sed synth2 for gensedfile : removing duplicate lines"

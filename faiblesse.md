@@ -14,6 +14,7 @@ lorsqu'il est basé sur les étoiles :
 <!-- current sentences -> expected sentences -->
 -- on a ajouté-lui -> on lui a ajouté
 -- pour on a ajouté -> pour ajouter
+-- d, on a ajouté -> d' ajouter
 
 
 les lignes 
