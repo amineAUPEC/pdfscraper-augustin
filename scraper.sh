@@ -61,6 +61,11 @@ file_grep_ajoutez_synth2="grep_ajoutez_synth2.txt"
 file_grep_ajouter_synth2="grep_ajouter_synth2.txt"
 
 
+# cat ./gen/sed_genfil_synth2.txt | uniq -c | cut -d ' ' -f7 | sort -r | head -n 1
+uniq_for_duplicate=$(cat $directory_output/$file_output_backup_synth2 | uniq -c | cut -d ' ' -f7 | sort -r | head -n 1)
+
+
+
 
 
 
@@ -239,7 +244,7 @@ sed 's/*/ /g' -i $directory_output/$file_output_synth2
 echo "cat replaced by sed synth2 for gensedfile : removing duplicate lines"
 cat $directory_output/$file_output_synth2 | uniq > $directory_output/$file_output_synth2
 # cat $directory_output/$file_output_synth2 | uniq > $directory_output/$file_output_synth2
-
+# if [ cat ./gen/sed_genfil_synth2.txt | uniq -c | cut -d ' ' -f7 | sort -r | head -n 1 ]
 
 # synthèse  2 files cat for sed  of gensedfile
 echo "cat replaced by sed synth2 for gensedfile "
@@ -264,6 +269,18 @@ echo "cat merged file : "
 cat $directory_output/$file_output_merged
 
 echo "merged at cat $directory_output"$file_output_merged" "
+echo $uniq_for_duplicate
+
+if [ $(($uniq_for_duplicate)) -ge 2 ]
+then
+    echo "uniq state true"
+
+else
+    echo "uniq state false"
+fi
+
+
+
 # to do
 # to add more synthesis
 # to add synthesis 1 dupliacte as synthesis1 bis
@@ -281,3 +298,6 @@ echo "merged at cat $directory_output"$file_output_merged" "
 # to do remove headers before random lines selection
 # to add -> Random line selection between the range
 # to add random lines selection
+
+
+
