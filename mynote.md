@@ -1,0 +1,1 @@
+github.com/<username>/<repo_name>/compare/<commit1>...<commit2>
