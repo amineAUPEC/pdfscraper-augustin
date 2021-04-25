@@ -1,12 +1,14 @@
 <!-- inconvénients -->
 souvent basé sur des grep : 
 - sur des verbes
-- sur des étoiles
+- sur des étoiles : 
+<!-- -- si l'étoile est à la fin du mot et est attaché -->
 - sur certains mots en particuliers : comme les adverbes
 - souvent le sujet utilisé est le même  :
 -- on a 
 -- j'ai 
 -- nous avons 
+- pas de distinction des casses -> grep -i ou sed avec un ignorecase
 - les lignes restitués sont relativements courtes ( ce qui est le but d'une synthèse)
 
 - bientot certains mots seront remplacés par des synonymes

@@ -170,7 +170,7 @@ sed 's/réaliser/on a réalisé/g' -i $directory_output/$file_output_synth1
 sed 's/aurez/on a/g' -i $directory_output/$file_output_synth1
 sed 's/sont bien configurés/on a bien configuré/g' -i $directory_output/$file_output_synth1
 sed 's/vous pouvez affichez/on affiché/g' -i $directory_output/$file_output_synth1
-sed 's/débranchez2/n a débranché/g' -i $directory_output/$file_output_synth1
+sed 's/débranchez2/on a débranché/g' -i $directory_output/$file_output_synth1
 sed 's/Importez/on a importé/g' -i $directory_output/$file_output_synth1
 sed 's/inspectez/on a inspecté/g' -i $directory_output/$file_output_synth1
 sed 's/affichez/on a affiché/g' -i $directory_output/$file_output_synth1
@@ -180,7 +180,8 @@ sed 's/la création/on a créé/g' -i $directory_output/$file_output_synth1
 sed 's/Le formater/on a formaté/g' -i $directory_output/$file_output_synth1
 sed 's/Le monter/on a monté/g' -i $directory_output/$file_output_synth1
 sed 's/démontez/on a démonté/g' -i $directory_output/$file_output_synth1
-
+sed 's/vous on a besoin/on a eu besoin de/g' -i $directory_output/$file_output_synth1
+sed 's/Pour cela, on affiché/Pour cela, on a affiché/g' -i $directory_output/$file_output_synth1
 
 # synthèse  1 files cat for sed  of gensedfile
 echo "cat replaced by sed synth1 for gensedfile : remove duplicate lines "
@@ -264,7 +265,6 @@ sed 's/ajoutez/, on a ajouté/g' -i $directory_output/$file_output_synth2
 sed 's/ajouter/, on a ajouté/g' -i $directory_output/$file_output_synth2
 sed 's/*/ /g' -i $directory_output/$file_output_synth2
 # more pattern for sed : of synth2 :
-sed 's/ensuite un VG  nommé vgstockage/ensuite on a nommé un VG en tant que vgstockage/g' -i $directory_output/$file_output_synth2
 sed 's/nommé/on a nommé/g' -i $directory_output/$file_output_synth2
 sed 's/Pour l’instant votre VG est composé/Pour l’instant notre VG est composé de/g' -i $directory_output/$file_output_synth2
 sed 's/votre/notre/g' -i $directory_output/$file_output_synth2
@@ -283,6 +283,7 @@ sed 's/on a ajouté-lui/on lui a ajouté/g' -i $directory_output/$file_output_sy
 sed 's/enfin créé/on a créé/g' -i $directory_output/$file_output_synth2
 sed 's/Le formater/on a formaté/g' -i $directory_output/$file_output_synth2
 sed 's/Le monter/on a monté/g' -i $directory_output/$file_output_synth2
+sed 's/ensuite un VG  nommé vgstockage/ensuite on a nommé un VG en tant que vgstockage/g' -i $directory_output/$file_output_synth2
 
 # synthèse  2 files cat for sed  of gensedfile : removing duplicate lines
 echo "cat replaced by sed synth2 for gensedfile : removing duplicate lines"
