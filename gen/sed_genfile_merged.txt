@@ -1,8 +1,8 @@
 synth1: 
-on a réalisé l'installation, vous on a besoin d'une image ISO  de Debian
-on a bien configuré. Pour cela, on affiché leurs propriétés  ainsi que
+on a réalisé l'installation, on a eu besoin de d'une image ISO  de Debian
+on a bien configuré. Pour cela, on a affiché leurs propriétés  ainsi que
 taille  .
-Storage1 et n a débranché son second disque. on a importé  une VM Debian
+Storage1 et on a débranché son second disque. on a importé  une VM Debian
 comprendre pourquoi, on a inspecté ses logs  et on a affiché les propriétés des volumes
 
 ce disque  au volume RAID 5.
@@ -17,7 +17,7 @@ lorsque vous on a démonté  le volume.
  
 synth2: 
 
-ensuite on a on a nommé un VG en tant que vgstockage. Pour l’instant notre VG est composé de
+ensuite un VG  on a nommé vgstockage. Pour l’instant notre VG est composé de
 unique PV (vous , on a ajoutéez d'autres PV un peu plus tard) :
 pouvez on a créé un premier LV  on a nommé lvstockage et utilisant 75% de
    •   on a formaté  en ext4
