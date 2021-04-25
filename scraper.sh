@@ -17,6 +17,8 @@
 
 # number of synthesis
 synthesis=2
+synth1="synth1"
+synth2="synth2"
 # input_file="file.pdf"
 # command_convert_to_txt=$(lesspipe file.pdf | less > res.txt)
 
@@ -249,14 +251,14 @@ sed 's/*/ /g' -i $directory_output/$file_output_synth2
 # synthèse  2 files cat for sed  of gensedfile : removing duplicate lines
 echo "cat replaced by sed synth2 for gensedfile : removing duplicate lines"
 # cat $directory_output/$file_output_synth2 | uniq > $directory_output/$file_output_synth2
-echo "uniq for duplicate : for synth2 : " $uniq_for_duplicate_synth2
+echo "uniq for duplicate : for $synth2 : " $uniq_for_duplicate_synth2
 
 if [ $(($uniq_for_duplicate_synth2)) -ge 2 ]
 then
-    echo "uniq state true : for synth2"
+    echo "uniq state true : for $synth2"
     cat $directory_output/$file_output_synth2 | uniq > $directory_output/$file_output_synth2
 else
-    echo "uniq state false : for synth2"
+    echo "uniq state false : for $synth2"
 fi
 
 # synthèse  2 files cat for sed  of gensedfile
