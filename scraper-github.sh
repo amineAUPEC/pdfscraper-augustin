@@ -63,8 +63,8 @@ file_grep_ajoutez_synth2="grep_ajoutez_synth2.txt"
 file_grep_ajouter_synth2="grep_ajouter_synth2.txt"
 
 # uniq for duplicate synthesis is used to remove duplicate lines
-uniq_for_duplicate_synth1=$(cat $directory_output/$file_output_backup_synth1 | uniq -c | cut -d ' ' -f7 | sort -r | head -n 1)
-uniq_for_duplicate_synth2=$(cat $directory_output/$file_output_backup_synth2 | uniq -c | cut -d ' ' -f7 | sort -r | head -n 1)
+# uniq_for_duplicate_synth1=$(cat $directory_output/$file_output_backup_synth1 | uniq -c | cut -d ' ' -f7 | sort -r | head -n 1)
+# uniq_for_duplicate_synth2=$(cat $directory_output/$file_output_backup_synth2 | uniq -c | cut -d ' ' -f7 | sort -r | head -n 1)
 
 
 

@@ -1,0 +1,15 @@
+on a réalisé l'installation, on a eu besoin de d'une image ISO  de Debian
+on a bien configuré. Pour cela, on a affiché leurs propriétés  ainsi que
+taille  .
+Storage1 et on a débranché son second disque. on a importé  une VM Debian
+comprendre pourquoi, on a inspecté ses logs  et on a affiché les propriétés des volumes
+
+ce disque  au volume RAID 5.
+l'état des volumes RAID  et on a visualisé en continu  sa reconstruction. Cette
+à présent que vous souhaitiez , on a ajouté un espace de stockage
+par exemple on a affiché la table des partitions de tous les disques .
+on a créé de ce volume  (en RAID 5), puis on a visualisé en continu  sa
+la configuration RAID persistante .
+   •   on a formaté .
+   •   on a monté  dans l'arborescence globale.
+lorsque vous on a démonté  le volume.

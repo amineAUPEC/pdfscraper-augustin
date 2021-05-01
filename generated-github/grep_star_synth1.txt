@@ -1,0 +1,14 @@
+   101	Pour réaliser l'installation, vous aurez besoin d'une image ISO* de Debian
+   219	RAID sont bien configurés. Pour cela, vous pouvez affichez leurs propriétés* ainsi que
+   220	leur taille* .
+   233	Arrêtez Storage1 et débranchez2 son second disque. Importez* une VM Debian
+   263	Pour comprendre pourquoi, inspectez ses logs* et affichez les propriétés des volumes
+   264	RAID*.
+   271	Ajouter ce disque* au volume RAID 5.
+   274	Affichez l'état des volumes RAID* et visualisez en continu* sa reconstruction. Cette
+   294	pouvez par exemple afficher la table des partitions de tous les disques*.
+   296	Lancez la création de ce volume* (en RAID 5), puis visualisez en continu* sa
+   301	rendez la configuration RAID persistante*.
+   308	    •   Le formater*.
+   310	    •   Le monter* dans l'arborescence globale.
+   317	accessibles lorsque vous démontez* le volume.

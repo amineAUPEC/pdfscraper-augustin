@@ -1,0 +1,15 @@
+
+ensuite un VG  on a nommé vgstockage. Pour l’instant notre VG est composé de
+unique PV (vous , on a ajoutéez d'autres PV un peu plus tard) :
+pouvez on a créé un premier LV  on a nommé lvstockage et utilisant 75% de
+   •   on a formaté  en ext4
+   •   on a monté dans l'arborescence globale. on a configuré un montage persistant .
+cela, nous vous proposons d', on a ajouté un nouveau (et quatrième !) volume RAID
+volume  (en RAID 5).
+ce volume en tant que PV , puis , on a ajouté  ce dernier dans le VG
+ce volume en tant que PV , puis , on a ajouté  ce dernier dans le VG
+on a augmenté la capacité du LV  : , on lui a ajouté 4 Go supplémentaires.
+on a augmenté la capacité du LV  : , on lui a ajouté 4 Go supplémentaires.
+on ne le savait pas (encore). on a comparé la taille du LV  et celle de la partition 
+on a utilisé la totalité de l’espace du LV, on a étendu son système de fichiers .
+les propriétés du VG  on a vérifié qu'il lui reste encore de l'espace non alloué.
