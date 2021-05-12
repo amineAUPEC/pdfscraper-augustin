@@ -246,7 +246,7 @@ cat $directory_output/grep_*_synth2.txt | cut -f 5- -d ' '
 echo "sorting synth2 "
 cat $directory_output/grep_*_synth2.txt | sort 
 
-sorting synth 2 for sed by removing line column : 
+# sorting synth 2 for sed by removing line column : 
 
 echo "sorting synth2 for sed "
 cat $directory_output/grep_*_synth2.txt | sort | cut -f 5- -d ' '
