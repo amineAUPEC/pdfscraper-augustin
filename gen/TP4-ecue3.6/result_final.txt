@@ -1,14 +1,14 @@
 
 synth1:
-On a configuré un port taggé sur un switch.
-On a configuré un port non taggé, sur un VLAN donné. Des 2 côtés.
-On a créé un vSwitch dans un hyperviseur Proxmox.
-On a créé une sous-interface dans un hyperviseur Proxmox.
-On a configuré le VLAN natif d'un port taggé.
+Tout d'abord, on a configuré un port taggé sur un switch.
+Ensuite, on a configuré un port non taggé, sur un VLAN donné. Des 2 côtés.
+De plus, on a créé un vSwitch dans un hyperviseur Proxmox.
+Mais aussi, on a créé une sous-interface dans un hyperviseur Proxmox.
+Pour finir, on a configuré le VLAN natif d'un port taggé.
 
 synth2:
-On a créé une sous-interface sur un routeur
-On a placé une interface dans une VRF.
-On a ajouté une route dans une VRF.
-On a configuré un NAT statique.
-On a ajouté une route spécifique pour ce PC.
+Premièrement, on a créé une sous-interface sur un routeur
+Désormais, on place une interface dans une VRF.
+Ensuite on a ajouté une route dans une VRF.
+Puis, on a configuré un NAT statique.
+Enfin pour terminer, on a ajouté une route spécifique pour ce PC.
